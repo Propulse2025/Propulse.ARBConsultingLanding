@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARB Consulting - Inteligencia de Negocios y Sistemas de Decisión</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+:root {
+    --deep-navy: #0B3041;
+    --navy: #0B3041;
+    --dark-blue: #0B3041;
+    --slate: #134659;
+    --white: #FFFFFF;
+    --off-white: #ECF3ED;
+    --cyan: #59BADC;
+    --cyan-light: #7CC9E3;
+    --green: #51A649;
+    --green-light: #6AB95F;
+    --green-cta: #46D35A;
+    --gray: #8B95A5;
+    --light-gray: #ECF3ED;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--deep-navy);
+    color: var(--off-white);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navigation - McKinsey Style */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 1.8rem 8%;
+    background: linear-gradient(180deg, rgba(11, 48, 65, 0.98) 0%, rgba(11, 48, 65, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(89, 186, 220, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav.scrolled {
+    padding: 1.2rem 8%;
+    background: rgba(11, 48, 65, 0.98);
+    border-bottom: 1px solid rgba(89, 186, 220, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--cyan), var(--green));
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--deep-navy);
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+}
+
+.logo-text {
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: var(--white);
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--off-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cyan), var(--green));
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+.nav-cta {
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(135deg, var(--green-cta), var(--green));
+    color: var(--white);
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(70, 211, 90, 0.2);
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(70, 211, 90, 0.3);
+}
+
+.nav-cta:after {
+    display: none;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-btn span {
+    width: 25px;
+    height: 2px;
+    background: var(--white);
+    transition: all 0.3s ease;
+}
+
+/* Hero Section - Premium McKinsey Style */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 12rem 8% 8rem;
+    background: linear-gradient(165deg, var(--deep-navy) 0%, #134659 50%, var(--deep-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(ellipse at top right, rgba(89, 186, 220, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(ellipse at bottom left, rgba(81, 166, 73, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-label {
+    display: inline-block;
+    color: var(--cyan);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.hero-label:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cyan), transparent);
+}
+
+.hero h1 {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--white);
+    letter-spacing: -1px;
+}
+
+.hero-description {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--light-gray);
+    max-width: 750px;
+    margin-bottom: 3.5rem;
+    line-height: 1.75;
+    font-weight: 300;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Buttons - Refined Style */
+.btn {
+    padding: 1.1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--green-cta), var(--green));
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(70, 211, 90, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(70, 211, 90, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    border-color: var(--cyan);
+    background: rgba(79, 195, 247, 0.1);
+}
+
+/* Stats Bar - Clean BCG Style */
+.stats-bar {
+    padding: 5rem 8%;
+    background: var(--deep-navy);
+    border-top: 1px solid rgba(89, 186, 220, 0.15);
+    border-bottom: 1px solid rgba(89, 186, 220, 0.15);
+}
+
+.stats-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 4rem;
+}
+
+.stat-item {
+    text-align: center;
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+.stat-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(89, 186, 220, 0.6);
+}
+
+.stat-item:nth-child(even):before {
+    background: var(--green);
+    box-shadow: 0 0 15px rgba(81, 166, 73, 0.6);
+}
+
+.stat-number {
+    font-family: 'Spectral', serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--cyan), var(--cyan-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: 0.8rem;
+    line-height: 1;
+}
+
+.stat-item:nth-child(even) .stat-number {
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--light-gray);
+    letter-spacing: 0.3px;
+    font-weight: 300;
+}
+
+/* Section Styles - McKinsey Inspired */
+.section {
+    padding: 8rem 8%;
+    position: relative;
+}
+
+.section.dark {
+    background: var(--white);
+    color: var(--deep-navy);
+}
+
+.section.darker {
+    background: var(--light-gray);
+    color: var(--deep-navy);
+}
+
+.section.gradient {
+    background: linear-gradient(165deg, #134659 0%, var(--deep-navy) 50%, #0B3041 100%);
+    color: var(--white);
+}
+
+.section-container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.section-header {
+    max-width: 900px;
+    margin-bottom: 5rem;
+}
+
+.section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.section-title {
+    font-family: 'Spectral', serif;
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    font-weight: 600;
+    color: var(--deep-navy);
+    margin-bottom: 2rem;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+}
+
+.section-description {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--slate);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* For gradient sections, keep white text */
+.section.gradient .section-label {
+    color: var(--cyan);
+}
+
+.section.gradient .section-title {
+    color: var(--white);
+}
+
+.section.gradient .section-description {
+    color: var(--light-gray);
+}
+
+.section.gradient .card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-color: rgba(89, 186, 220, 0.2);
+}
+
+.section.gradient .card h3 {
+    color: var(--white);
+}
+
+.section.gradient .card p,
+.section.gradient .card li {
+    color: var(--light-gray);
+}
+
+/* Grid System */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 3rem;
+}
+
+/* Cards - Premium Style */
+.card {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 8px;
+    border: 1px solid rgba(89, 186, 220, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 2px 8px rgba(11, 48, 65, 0.08);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan);
+    box-shadow: 0 15px 40px rgba(11, 48, 65, 0.15);
+}
+
+.card:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--cyan));
+    border-radius: 8px 8px 0 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover:after {
+    opacity: 1;
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    color: var(--deep-navy);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.card p {
+    color: var(--slate);
+    line-height: 1.8;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.card ul {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.card li {
+    color: var(--slate);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(89, 186, 220, 0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.card li:last-child {
+    border-bottom: none;
+}
+
+.card li:before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.6rem;
+    box-shadow: 0 0 10px rgba(81, 166, 73, 0.4);
+}
+
+/* Quote Block */
+.quote-block {
+    max-width: 1100px;
+    margin: 5rem auto 0;
+    padding: 4rem 3.5rem;
+    background: linear-gradient(135deg, rgba(89, 186, 220, 0.08) 0%, rgba(81, 166, 73, 0.08) 100%);
+    border-left: 4px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    position: relative;
+}
+
+.quote-block:before {
+    content: '"';
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+    font-family: 'Spectral', serif;
+    font-size: 7rem;
+    color: rgba(81, 166, 73, 0.1);
+    line-height: 1;
+}
+
+.quote-block p {
+    font-family: 'Spectral', serif;
+    font-size: clamp(1.6rem, 3vw, 2.8rem);
+    color: var(--deep-navy);
+    line-height: 1.4;
+    font-style: italic;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+/* Client Cards */
+.client-card {
+    background: var(--white);
+    border: 1px solid rgba(89, 186, 220, 0.15);
+    padding: 3.5rem 2.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 8px rgba(11, 48, 65, 0.08);
+}
+
+.client-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan);
+    box-shadow: 0 15px 40px rgba(11, 48, 65, 0.12);
+}
+
+.client-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(89, 186, 220, 0.1), rgba(81, 166, 73, 0.1));
+    border: 2px solid rgba(89, 186, 220, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+}
+
+.client-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--deep-navy);
+    font-weight: 600;
+}
+
+.client-card p {
+    color: var(--slate);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--light-gray);
+    border-left: 3px solid var(--green);
+    border-radius: 0 6px 6px 0;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:nth-child(even) {
+    border-left-color: var(--cyan);
+}
+
+.benefit-item:hover {
+    background: rgba(236, 243, 237, 0.7);
+    transform: translateX(5px);
+}
+
+.check-mark {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    border-radius: 50%;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(81, 166, 73, 0.3);
+}
+
+.benefit-item:nth-child(even) .check-mark {
+    background: linear-gradient(135deg, var(--cyan), var(--cyan-light));
+    box-shadow: 0 4px 15px rgba(89, 186, 220, 0.3);
+}
+
+.benefit-item span {
+    color: var(--slate);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* Form - Clean Professional Style */
+.form-container {
+    max-width: 650px;
+    margin: 3rem auto 0;
+    background: linear-gradient(135deg, rgba(27, 58, 95, 0.6) 0%, rgba(18, 38, 64, 0.6) 100%);
+    padding: 3.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(79, 195, 247, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: var(--off-white);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: rgba(10, 22, 40, 0.6);
+    border: 1px solid rgba(79, 195, 247, 0.2);
+    color: var(--off-white);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-weight: 300;
+}
+
+.form-group input::placeholder {
+    color: var(--gray);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--cyan);
+    background: rgba(10, 22, 40, 0.8);
+    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.1);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, var(--green-cta), var(--green));
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(70, 211, 90, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(70, 211, 90, 0.4);
+}
+
+/* Footer */
+footer {
+    padding: 5rem 8% 3rem;
+    background: linear-gradient(180deg, var(--deep-navy) 0%, #050A14 100%);
+    text-align: center;
+    color: var(--gray);
+    border-top: 1px solid rgba(79, 195, 247, 0.1);
+}
+
+footer p {
+    line-height: 1.8;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+footer strong {
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero,
+    .section,
+    .stats-bar {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    nav {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 22, 40, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        border-bottom: 1px solid rgba(79, 195, 247, 0.1);
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 90vh;
+        padding: 8rem 5% 5rem;
+    }
+
+    .section {
+        padding: 5rem 5%;
+    }
+
+    .stats-bar {
+        padding: 4rem 5%;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .stat-item {
+        padding-top: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-container {
+        padding: 2.5rem 2rem;
+    }
+
+    .quote-block {
+        padding: 3rem 2rem;
+    }
+
+    .quote-block:before {
+        font-size: 4rem;
+        left: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .card {
+        padding: 2rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-container">
+        <div class="logo">
+            <div class="logo-icon">ARB</div>
+            <div class="logo-text">CONSULTING</div>
+        </div>
+        <div class="nav-links">
+            <a href="#servicios">Servicios</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#clientes">Clientes</a>
+            <a href="#contacto" class="nav-cta">Contacto</a>
+        </div>
+        <div class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-label">Inteligencia Estratégica de Negocios</div>
+            <h1>Especialistas en análisis de mercado.<br>Arquitectos de sistemas de decisión.</h1>
+            <p class="hero-description">
+                Combinamos análisis profundo de mercado con diseño estructural de modelos financieros y arquitecturas de datos.
+                <br><br>
+                No solo interpretamos el mercado. Construimos el sistema interno que te permite dominarlo.
+            </p>
+            <div class="cta-group">
+                <a href="#contacto" class="btn btn-primary">Agendar conversación estratégica</a>
+                <a href="#servicios" class="btn btn-secondary">Explorar soluciones</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="stats-bar">
+    <div class="stats-container">
+        <div class="stat-item fade-in">
+            <span class="stat-number">Modelos</span>
+            <span class="stat-label">Simulación financiera estructurada</span>
+        </div>
+        <div class="stat-item fade-in">
+            <span class="stat-number">Sistemas</span>
+            <span class="stat-label">Arquitecturas comerciales implementadas</span>
+        </div>
+        <div class="stat-item fade-in">
+            <span class="stat-number">Data</span>
+            <span class="stat-label">Dashboards ejecutivos operativos</span>
+        </div>
+        <div class="stat-item fade-in">
+            <span class="stat-number">Expertise</span>
+            <span class="stat-label">Análisis sectorial profundo</span>
+        </div>
+    </div>
+</section>
+
+<!-- Problem Section -->
+<section class="section dark">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">El problema real</div>
+            <h2 class="section-title">El mercado no castiga la intuición.<br>Castiga la falta de estructura.</h2>
+            <p class="section-description">
+                La mayoría de empresas operan con información fragmentada, pricing reactivo y sistemas comerciales sin trazabilidad clara.
+            </p>
+        </div>
+
+        <div class="grid">
+            <div class="card fade-in">
+                <h3>Excel como sistema central</h3>
+                <p>Archivos desconectados, reportes manuales y versiones paralelas que consumen tiempo directivo y reducen claridad estratégica.</p>
+            </div>
+
+            <div class="card fade-in">
+                <h3>Pricing reactivo</h3>
+                <p>Se replica a la competencia sin comprender dinámica real del mercado, elasticidad por producto ni estructura completa de márgenes.</p>
+            </div>
+
+            <div class="card fade-in">
+                <h3>Comercial sin arquitectura</h3>
+                <p>Falta de trazabilidad entre canal, conversión y rentabilidad final. Se mide actividad, no sistema.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solution Section -->
+<section class="section gradient" id="servicios">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">Nuestra Arquitectura</div>
+            <h2 class="section-title">Dos capas. Un solo sistema de ventaja competitiva.</h2>
+            <p class="section-description">
+                Integramos especialización sectorial con diseño estructural interno. Mercado + Sistema.
+            </p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card fade-in">
+                <h3>Inteligencia de Mercado</h3>
+                <p style="margin-bottom: 1.5rem;">Dominio profundo del sector</p>
+                <ul>
+                    <li>Análisis competitivo estructurado</li>
+                    <li>Diagnóstico de saturación vs demanda efectiva</li>
+                    <li>Identificación de oportunidades no evidentes</li>
+                    <li>Benchmarking de performance por player</li>
+                    <li>Estrategia de posicionamiento competitivo</li>
+                </ul>
+            </div>
+
+            <div class="card fade-in">
+                <h3>Arquitectura Estratégica Interna</h3>
+                <p style="margin-bottom: 1.5rem;">Sistema de decisión replicable</p>
+                <ul>
+                    <li>Modelos de simulación financiera por unidad de negocio</li>
+                    <li>Arquitectura de pricing basada en datos reales</li>
+                    <li>Dashboards ejecutivos (Power BI / soluciones propias)</li>
+                    <li>Estandarización de reportes comerciales</li>
+                    <li>Automatización de procesos críticos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why ARB Section -->
+<section class="section darker" id="nosotros">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">Por qué ARB</div>
+            <h2 class="section-title">Especialización vertical. Profundidad estructural.</h2>
+        </div>
+
+        <div class="grid">
+            <div class="card fade-in">
+                <h3>Análisis sectorial profundo</h3>
+                <p>No somos consultora generalista. Nos especializamos por vertical para entender ciclos, dinámicas y palancas de valor reales.</p>
+            </div>
+
+            <div class="card fade-in">
+                <h3>Estrategia + Data + Implementación</h3>
+                <p>No entregamos solo análisis. Implementamos sistemas que quedan funcionando.</p>
+            </div>
+
+            <div class="card fade-in">
+                <h3>Modelos propios</h3>
+                <p>Frameworks y simuladores desarrollados internamente para estructurar decisiones críticas.</p>
+            </div>
+
+            <div class="card fade-in">
+                <h3>Mentalidad de inversionista</h3>
+                <p>Pensamos en retorno, riesgo y estructura de capital. No solo en métricas superficiales.</p>
+            </div>
+        </div>
+
+        <div class="quote-block fade-in">
+            <p>No competimos por tamaño. Competimos por claridad estructural en decisiones millonarias.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Clients Section -->
+<section class="section dark" id="clientes">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">Clientes</div>
+            <h2 class="section-title">Trabajamos con quienes toman decisiones reales</h2>
+        </div>
+
+        <div class="grid">
+            <div class="client-card fade-in">
+                <div class="client-icon">🏢</div>
+                <h3>Empresas en crecimiento</h3>
+                <p>Estructuramos modelos de viabilidad, optimizamos pricing por producto y diseñamos arquitecturas comerciales replicables.</p>
+            </div>
+
+            <div class="client-card fade-in">
+                <div class="client-icon">💼</div>
+                <h3>Fondos y family offices</h3>
+                <p>Análisis de oportunidades, due diligence comercial y modelado de retornos bajo distintos escenarios de mercado.</p>
+            </div>
+
+            <div class="client-card fade-in">
+                <div class="client-icon">📊</div>
+                <h3>Negocios en expansión</h3>
+                <p>Estandarizamos procesos comerciales, implementamos dashboards ejecutivos y automatizamos reportería crítica.</p>
+            </div>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-item fade-in">
+                <span class="check-mark">✓</span>
+                <span>Reducir riesgo en decisiones de inversión</span>
+            </div>
+
+            <div class="benefit-item fade-in">
+                <span class="check-mark">✓</span>
+                <span>Optimizar pricing y márgenes reales</span>
+            </div>
+
+            <div class="benefit-item fade-in">
+                <span class="check-mark">✓</span>
+                <span>Estandarizar gestión comercial</span>
+            </div>
+
+            <div class="benefit-item fade-in">
+                <span class="check-mark">✓</span>
+                <span>Convertir data dispersa en sistema replicable</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA / Contact Section -->
+<section class="section gradient" id="contacto">
+    <div class="section-container">
+        <div class="section-header" style="max-width: 800px; margin: 0 auto 3rem; text-align: center;">
+            <h2 class="section-title">Si tu empresa depende de hojas sueltas, necesita arquitectura.</h2>
+            <p class="section-description">
+                Agenda una conversación estratégica y evaluemos cómo transformar tu estructura de decisión.
+            </p>
+        </div>
+
+        <div class="form-container fade-in">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label>Nombre completo</label>
+                    <input type="text" placeholder="Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email corporativo</label>
+                    <input type="email" placeholder="juan@empresa.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Empresa</label>
+                    <input type="text" placeholder="Nombre de tu empresa" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Prioridad actual</label>
+                    <select required>
+                        <option value="">Seleccionar</option>
+                        <option>Inteligencia de mercado</option>
+                        <option>Pricing y estructura de márgenes</option>
+                        <option>Modelo financiero</option>
+                        <option>Dashboards ejecutivos / BI</option>
+                        <option>Arquitectura comercial</option>
+                        <option>Automatización de procesos</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Agendar conversación estratégica</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>
+        <strong>ARB Consulting</strong><br>
+        Consultora boutique de estrategia e inteligencia de negocios.<br>
+        Convertimos información dispersa en sistemas de decisión ejecutables.
+    </p>
+    <p style="margin-top: 2rem; font-size: 0.85rem;">
+        &copy; 2026 ARB Consulting. Todos los derechos reservados.
+    </p>
+</footer>
+
+<script>
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offset = 80;
+            const targetPosition = target.offsetTop - offset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Nav scroll effect
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
+});
+
+// Fade-in animation on scroll
+const fadeElements = document.querySelectorAll('.fade-in');
+
+const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+fadeElements.forEach(element => {
+    fadeInObserver.observe(element);
+});
+
+// Form submission
+const form = document.getElementById('contactForm');
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Gracias por tu interés. Nos pondremos en contacto contigo pronto.');
+        form.reset();
+    });
+}
+</script>
+
+</body>
+</html>
