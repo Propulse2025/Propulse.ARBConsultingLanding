@@ -875,6 +875,29 @@ footer strong {
     }
 }
 
+/* WhatsApp Bubble */
+.whatsapp-bubble {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-bubble:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+}
+
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 2rem;
@@ -1161,6 +1184,15 @@ footer strong {
         </div>
     </div>
 </section>
+
+<!-- WhatsApp Bubble -->
+<a href="https://wa.me/351925922568?text=Hola%2C%20vengo%20de%20la%20web%20de%20ARB%20Consulting%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="whatsapp-bubble" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.216 175.552" width="32" height="32">
+        <defs><linearGradient id="wa-grad" x1="85.915" x2="86.535" y1="32.567" y2="137.092" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#57d163"/><stop offset="1" stop-color="#23b33a"/></linearGradient></defs>
+        <path fill="#fff" d="M87.184 14.2A73.073 73.073 0 0 0 14.2 87.184a72.6 72.6 0 0 0 10.1 36.9L14.2 161.35l38.3-10.05a72.8 72.8 0 0 0 34.7 8.85 73.1 73.1 0 0 0 0-146.15zm0 133.6a60.7 60.7 0 0 1-30.9-8.5l-2.2-1.3-22.7 6 6.1-22.2-1.4-2.3a60.5 60.5 0 0 1-9.3-32.3 60.6 60.6 0 1 1 60.6 60.6z"/>
+        <path fill="#fff" d="M126.8 105.3c-2.2-1.1-12.8-6.3-14.8-7s-3.4-1.1-4.9 1.1-5.6 7-6.9 8.5-2.5 1.6-4.7.5a59.6 59.6 0 0 1-17.6-10.9 66 66 0 0 1-12.2-15.2c-1.3-2.2-.1-3.4 1-4.5s2.2-2.5 3.3-3.8a15.4 15.4 0 0 0 2.2-3.6 4 4 0 0 0-.2-3.8c-.5-1.1-4.9-11.7-6.7-16-1.8-4.2-3.5-3.6-4.9-3.7h-4.1a8 8 0 0 0-5.8 2.7c-2 2.2-7.6 7.4-7.6 18s7.8 20.9 8.9 22.3 15.3 23.4 37.1 32.8a124.7 124.7 0 0 0 12.4 4.6 29.8 29.8 0 0 0 13.7.9c4.2-.6 12.8-5.2 14.6-10.3s1.8-9.4 1.3-10.3-2-1.5-4.2-2.6z"/>
+    </svg>
+</a>
 
 <!-- Footer -->
 <footer>
