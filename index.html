@@ -81,15 +81,8 @@ nav.scrolled {
 .logo-icon {
     width: 45px;
     height: 45px;
-    background: linear-gradient(135deg, var(--cyan), var(--green));
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--deep-navy);
-    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+    object-fit: contain;
+    filter: invert(1);
 }
 
 .logo-text {
@@ -924,8 +917,8 @@ footer strong {
 <nav>
     <div class="nav-container">
         <div class="logo">
-            <div class="logo-icon">ARB</div>
-            <div class="logo-text">CONSULTING</div>
+            <img src="logo.png" alt="ARB Consulting" class="logo-icon">
+            <div class="logo-text">ARB Consulting</div>
         </div>
         <div class="nav-links">
             <a href="#servicios">Servicios</a>
