@@ -908,6 +908,40 @@ footer strong {
         grid-template-columns: 1fr;
     }
 }
+
+/* Language Switcher */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.lang-switcher button {
+    background: none;
+    border: none;
+    color: var(--gray);
+    font-family: 'Avenir LT Pro', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.lang-switcher button.active {
+    color: var(--white);
+    background: rgba(89, 186, 220, 0.2);
+}
+
+.lang-switcher button:hover {
+    color: var(--white);
+}
+
+.lang-switcher span {
+    color: var(--gray);
+    font-size: 0.75rem;
+}
 </style>
 </head>
 
@@ -921,10 +955,15 @@ footer strong {
             <div class="logo-text">ARB Consulting</div>
         </div>
         <div class="nav-links">
-            <a href="#servicios">Servicios</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#clientes">Clientes</a>
-            <a href="#contacto" class="nav-cta">Contacto</a>
+            <a href="#servicios" data-i18n="nav.services">Servicios</a>
+            <a href="#nosotros" data-i18n="nav.about">Nosotros</a>
+            <a href="#clientes" data-i18n="nav.clients">Clientes</a>
+            <a href="#contacto" class="nav-cta" data-i18n="nav.contact">Contacto</a>
+        </div>
+        <div class="lang-switcher">
+            <button data-lang="es" class="active">ES</button>
+            <span>|</span>
+            <button data-lang="en">EN</button>
         </div>
         <div class="mobile-menu-btn">
             <span></span>
@@ -938,16 +977,16 @@ footer strong {
 <section class="hero">
     <div class="hero-container">
         <div class="hero-content">
-            <div class="hero-label">Inteligencia Estratégica de Negocios</div>
-            <h1>Especialistas en análisis de mercado.<br>Arquitectos de sistemas de decisión.</h1>
-            <p class="hero-description">
+            <div class="hero-label" data-i18n="hero.label">Inteligencia Estratégica de Negocios</div>
+            <h1 data-i18n="hero.title">Especialistas en análisis de mercado.<br>Arquitectos de sistemas de decisión.</h1>
+            <p class="hero-description" data-i18n="hero.description">
                 Combinamos análisis profundo de mercado con diseño estructural de modelos financieros y arquitecturas de datos.
                 <br><br>
                 No solo interpretamos el mercado. Construimos el sistema interno que te permite dominarlo.
             </p>
             <div class="cta-group">
-                <a href="#contacto" class="btn btn-primary">Agendar conversación estratégica</a>
-                <a href="#servicios" class="btn btn-secondary">Explorar soluciones</a>
+                <a href="#contacto" class="btn btn-primary" data-i18n="hero.cta_primary">Agendar conversación estratégica</a>
+                <a href="#servicios" class="btn btn-secondary" data-i18n="hero.cta_secondary">Explorar soluciones</a>
             </div>
         </div>
     </div>
@@ -957,20 +996,20 @@ footer strong {
 <section class="stats-bar">
     <div class="stats-container">
         <div class="stat-item fade-in">
-            <span class="stat-number">Modelos</span>
-            <span class="stat-label">Simulación financiera estructurada</span>
+            <span class="stat-number" data-i18n="stats.models">Modelos</span>
+            <span class="stat-label" data-i18n="stats.models_label">Simulación financiera estructurada</span>
         </div>
         <div class="stat-item fade-in">
-            <span class="stat-number">Sistemas</span>
-            <span class="stat-label">Arquitecturas comerciales implementadas</span>
+            <span class="stat-number" data-i18n="stats.systems">Sistemas</span>
+            <span class="stat-label" data-i18n="stats.systems_label">Arquitecturas comerciales implementadas</span>
         </div>
         <div class="stat-item fade-in">
-            <span class="stat-number">Data</span>
-            <span class="stat-label">Dashboards ejecutivos operativos</span>
+            <span class="stat-number" data-i18n="stats.data">Data</span>
+            <span class="stat-label" data-i18n="stats.data_label">Dashboards ejecutivos operativos</span>
         </div>
         <div class="stat-item fade-in">
-            <span class="stat-number">Expertise</span>
-            <span class="stat-label">Análisis sectorial profundo</span>
+            <span class="stat-number" data-i18n="stats.expertise">Expertise</span>
+            <span class="stat-label" data-i18n="stats.expertise_label">Análisis sectorial profundo</span>
         </div>
     </div>
 </section>
@@ -979,27 +1018,27 @@ footer strong {
 <section class="section dark">
     <div class="section-container">
         <div class="section-header">
-            <div class="section-label">El problema real</div>
-            <h2 class="section-title">El mercado no castiga la intuición.<br>Castiga la falta de estructura.</h2>
-            <p class="section-description">
+            <div class="section-label" data-i18n="problem.label">El problema real</div>
+            <h2 class="section-title" data-i18n="problem.title">El mercado no castiga la intuición.<br>Castiga la falta de estructura.</h2>
+            <p class="section-description" data-i18n="problem.description">
                 La mayoría de empresas operan con información fragmentada, pricing reactivo y sistemas comerciales sin trazabilidad clara.
             </p>
         </div>
 
         <div class="grid">
             <div class="card fade-in">
-                <h3>Excel como sistema central</h3>
-                <p>Archivos desconectados, reportes manuales y versiones paralelas que consumen tiempo directivo y reducen claridad estratégica.</p>
+                <h3 data-i18n="problem.card1_title">Excel como sistema central</h3>
+                <p data-i18n="problem.card1_text">Archivos desconectados, reportes manuales y versiones paralelas que consumen tiempo directivo y reducen claridad estratégica.</p>
             </div>
 
             <div class="card fade-in">
-                <h3>Pricing reactivo</h3>
-                <p>Se replica a la competencia sin comprender dinámica real del mercado, elasticidad por producto ni estructura completa de márgenes.</p>
+                <h3 data-i18n="problem.card2_title">Pricing reactivo</h3>
+                <p data-i18n="problem.card2_text">Se replica a la competencia sin comprender dinámica real del mercado, elasticidad por producto ni estructura completa de márgenes.</p>
             </div>
 
             <div class="card fade-in">
-                <h3>Comercial sin arquitectura</h3>
-                <p>Falta de trazabilidad entre canal, conversión y rentabilidad final. Se mide actividad, no sistema.</p>
+                <h3 data-i18n="problem.card3_title">Comercial sin arquitectura</h3>
+                <p data-i18n="problem.card3_text">Falta de trazabilidad entre canal, conversión y rentabilidad final. Se mide actividad, no sistema.</p>
             </div>
         </div>
     </div>
@@ -1009,35 +1048,35 @@ footer strong {
 <section class="section gradient" id="servicios">
     <div class="section-container">
         <div class="section-header">
-            <div class="section-label">Nuestra Arquitectura</div>
-            <h2 class="section-title">Dos capas. Un solo sistema de ventaja competitiva.</h2>
-            <p class="section-description">
+            <div class="section-label" data-i18n="solution.label">Nuestra Arquitectura</div>
+            <h2 class="section-title" data-i18n="solution.title">Dos capas. Un solo sistema de ventaja competitiva.</h2>
+            <p class="section-description" data-i18n="solution.description">
                 Integramos especialización sectorial con diseño estructural interno. Mercado + Sistema.
             </p>
         </div>
 
         <div class="grid grid-2">
             <div class="card fade-in">
-                <h3>Inteligencia de Mercado</h3>
-                <p style="margin-bottom: 1.5rem;">Dominio profundo del sector</p>
+                <h3 data-i18n="solution.market_title">Inteligencia de Mercado</h3>
+                <p style="margin-bottom: 1.5rem;" data-i18n="solution.market_subtitle">Dominio profundo del sector</p>
                 <ul>
-                    <li>Análisis competitivo estructurado</li>
-                    <li>Diagnóstico de saturación vs demanda efectiva</li>
-                    <li>Identificación de oportunidades no evidentes</li>
-                    <li>Benchmarking de performance por player</li>
-                    <li>Estrategia de posicionamiento competitivo</li>
+                    <li data-i18n="solution.market_li1">Análisis competitivo estructurado</li>
+                    <li data-i18n="solution.market_li2">Diagnóstico de saturación vs demanda efectiva</li>
+                    <li data-i18n="solution.market_li3">Identificación de oportunidades no evidentes</li>
+                    <li data-i18n="solution.market_li4">Benchmarking de performance por player</li>
+                    <li data-i18n="solution.market_li5">Estrategia de posicionamiento competitivo</li>
                 </ul>
             </div>
 
             <div class="card fade-in">
-                <h3>Arquitectura Estratégica Interna</h3>
-                <p style="margin-bottom: 1.5rem;">Sistema de decisión replicable</p>
+                <h3 data-i18n="solution.arch_title">Arquitectura Estratégica Interna</h3>
+                <p style="margin-bottom: 1.5rem;" data-i18n="solution.arch_subtitle">Sistema de decisión replicable</p>
                 <ul>
-                    <li>Modelos de simulación financiera por unidad de negocio</li>
-                    <li>Arquitectura de pricing basada en datos reales</li>
-                    <li>Dashboards ejecutivos (Power BI / soluciones propias)</li>
-                    <li>Estandarización de reportes comerciales</li>
-                    <li>Automatización de procesos críticos</li>
+                    <li data-i18n="solution.arch_li1">Modelos de simulación financiera por unidad de negocio</li>
+                    <li data-i18n="solution.arch_li2">Arquitectura de pricing basada en datos reales</li>
+                    <li data-i18n="solution.arch_li3">Dashboards ejecutivos (Power BI / soluciones propias)</li>
+                    <li data-i18n="solution.arch_li4">Estandarización de reportes comerciales</li>
+                    <li data-i18n="solution.arch_li5">Automatización de procesos críticos</li>
                 </ul>
             </div>
         </div>
@@ -1048,34 +1087,34 @@ footer strong {
 <section class="section darker" id="nosotros">
     <div class="section-container">
         <div class="section-header">
-            <div class="section-label">Por qué ARB</div>
-            <h2 class="section-title">Especialización vertical. Profundidad estructural.</h2>
+            <div class="section-label" data-i18n="why.label">Por qué ARB</div>
+            <h2 class="section-title" data-i18n="why.title">Especialización vertical. Profundidad estructural.</h2>
         </div>
 
         <div class="grid">
             <div class="card fade-in">
-                <h3>Análisis sectorial profundo</h3>
-                <p>No somos consultora generalista. Nos especializamos por vertical para entender ciclos, dinámicas y palancas de valor reales.</p>
+                <h3 data-i18n="why.card1_title">Análisis sectorial profundo</h3>
+                <p data-i18n="why.card1_text">No somos consultora generalista. Nos especializamos por vertical para entender ciclos, dinámicas y palancas de valor reales.</p>
             </div>
 
             <div class="card fade-in">
-                <h3>Estrategia + Data + Implementación</h3>
-                <p>No entregamos solo análisis. Implementamos sistemas que quedan funcionando.</p>
+                <h3 data-i18n="why.card2_title">Estrategia + Data + Implementación</h3>
+                <p data-i18n="why.card2_text">No entregamos solo análisis. Implementamos sistemas que quedan funcionando.</p>
             </div>
 
             <div class="card fade-in">
-                <h3>Modelos propios</h3>
-                <p>Frameworks y simuladores desarrollados internamente para estructurar decisiones críticas.</p>
+                <h3 data-i18n="why.card3_title">Modelos propios</h3>
+                <p data-i18n="why.card3_text">Frameworks y simuladores desarrollados internamente para estructurar decisiones críticas.</p>
             </div>
 
             <div class="card fade-in">
-                <h3>Mentalidad de inversionista</h3>
-                <p>Pensamos en retorno, riesgo y estructura de capital. No solo en métricas superficiales.</p>
+                <h3 data-i18n="why.card4_title">Mentalidad de inversionista</h3>
+                <p data-i18n="why.card4_text">Pensamos en retorno, riesgo y estructura de capital. No solo en métricas superficiales.</p>
             </div>
         </div>
 
         <div class="quote-block fade-in">
-            <p>No competimos por tamaño. Competimos por claridad estructural en decisiones millonarias.</p>
+            <p data-i18n="why.quote">No competimos por tamaño. Competimos por claridad estructural en decisiones millonarias.</p>
         </div>
     </div>
 </section>
@@ -1084,49 +1123,49 @@ footer strong {
 <section class="section dark" id="clientes">
     <div class="section-container">
         <div class="section-header">
-            <div class="section-label">Clientes</div>
-            <h2 class="section-title">Trabajamos con quienes toman decisiones reales</h2>
+            <div class="section-label" data-i18n="clients.label">Clientes</div>
+            <h2 class="section-title" data-i18n="clients.title">Trabajamos con quienes toman decisiones reales</h2>
         </div>
 
         <div class="grid">
             <div class="client-card fade-in">
                 <div class="client-icon">🏢</div>
-                <h3>Empresas en crecimiento</h3>
-                <p>Estructuramos modelos de viabilidad, optimizamos pricing por producto y diseñamos arquitecturas comerciales replicables.</p>
+                <h3 data-i18n="clients.card1_title">Empresas en crecimiento</h3>
+                <p data-i18n="clients.card1_text">Estructuramos modelos de viabilidad, optimizamos pricing por producto y diseñamos arquitecturas comerciales replicables.</p>
             </div>
 
             <div class="client-card fade-in">
                 <div class="client-icon">💼</div>
-                <h3>Fondos y family offices</h3>
-                <p>Análisis de oportunidades, due diligence comercial y modelado de retornos bajo distintos escenarios de mercado.</p>
+                <h3 data-i18n="clients.card2_title">Fondos y family offices</h3>
+                <p data-i18n="clients.card2_text">Análisis de oportunidades, due diligence comercial y modelado de retornos bajo distintos escenarios de mercado.</p>
             </div>
 
             <div class="client-card fade-in">
                 <div class="client-icon">📊</div>
-                <h3>Negocios en expansión</h3>
-                <p>Estandarizamos procesos comerciales, implementamos dashboards ejecutivos y automatizamos reportería crítica.</p>
+                <h3 data-i18n="clients.card3_title">Negocios en expansión</h3>
+                <p data-i18n="clients.card3_text">Estandarizamos procesos comerciales, implementamos dashboards ejecutivos y automatizamos reportería crítica.</p>
             </div>
         </div>
 
         <div class="benefits-grid">
             <div class="benefit-item fade-in">
                 <span class="check-mark">✓</span>
-                <span>Reducir riesgo en decisiones de inversión</span>
+                <span data-i18n="clients.benefit1">Reducir riesgo en decisiones de inversión</span>
             </div>
 
             <div class="benefit-item fade-in">
                 <span class="check-mark">✓</span>
-                <span>Optimizar pricing y márgenes reales</span>
+                <span data-i18n="clients.benefit2">Optimizar pricing y márgenes reales</span>
             </div>
 
             <div class="benefit-item fade-in">
                 <span class="check-mark">✓</span>
-                <span>Estandarizar gestión comercial</span>
+                <span data-i18n="clients.benefit3">Estandarizar gestión comercial</span>
             </div>
 
             <div class="benefit-item fade-in">
                 <span class="check-mark">✓</span>
-                <span>Convertir data dispersa en sistema replicable</span>
+                <span data-i18n="clients.benefit4">Convertir data dispersa en sistema replicable</span>
             </div>
         </div>
     </div>
@@ -1136,8 +1175,8 @@ footer strong {
 <section class="section gradient" id="contacto">
     <div class="section-container">
         <div class="section-header" style="max-width: 800px; margin: 0 auto 3rem; text-align: center;">
-            <h2 class="section-title">Si tu empresa depende de hojas sueltas, necesita arquitectura.</h2>
-            <p class="section-description">
+            <h2 class="section-title" data-i18n="contact.title">Si tu empresa depende de hojas sueltas, necesita arquitectura.</h2>
+            <p class="section-description" data-i18n="contact.description">
                 Agenda una conversación estratégica y evaluemos cómo transformar tu estructura de decisión.
             </p>
         </div>
@@ -1145,41 +1184,41 @@ footer strong {
         <div class="form-container fade-in">
             <form id="contactForm">
                 <div class="form-group">
-                    <label>Nombre completo</label>
-                    <input type="text" placeholder="Juan Pérez" required>
+                    <label data-i18n="form.name_label">Nombre completo</label>
+                    <input type="text" placeholder="Juan Pérez" data-i18n-ph="form.name_ph" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Email corporativo</label>
-                    <input type="email" placeholder="juan@empresa.com" required>
+                    <label data-i18n="form.email_label">Email corporativo</label>
+                    <input type="email" placeholder="juan@empresa.com" data-i18n-ph="form.email_ph" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Empresa</label>
-                    <input type="text" placeholder="Nombre de tu empresa" required>
+                    <label data-i18n="form.company_label">Empresa</label>
+                    <input type="text" placeholder="Nombre de tu empresa" data-i18n-ph="form.company_ph" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Prioridad actual</label>
+                    <label data-i18n="form.priority_label">Prioridad actual</label>
                     <select required>
-                        <option value="">Seleccionar</option>
-                        <option>Inteligencia de mercado</option>
-                        <option>Pricing y estructura de márgenes</option>
-                        <option>Modelo financiero</option>
-                        <option>Dashboards ejecutivos / BI</option>
-                        <option>Arquitectura comercial</option>
-                        <option>Automatización de procesos</option>
+                        <option value="" data-i18n="form.priority_default">Seleccionar</option>
+                        <option data-i18n="form.opt1">Inteligencia de mercado</option>
+                        <option data-i18n="form.opt2">Pricing y estructura de márgenes</option>
+                        <option data-i18n="form.opt3">Modelo financiero</option>
+                        <option data-i18n="form.opt4">Dashboards ejecutivos / BI</option>
+                        <option data-i18n="form.opt5">Arquitectura comercial</option>
+                        <option data-i18n="form.opt6">Automatización de procesos</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn-submit">Agendar conversación estratégica</button>
+                <button type="submit" class="btn-submit" data-i18n="form.submit">Agendar conversación estratégica</button>
             </form>
         </div>
     </div>
 </section>
 
 <!-- WhatsApp Bubble -->
-<a href="https://wa.me/351925922568?text=Hola%2C%20vengo%20de%20la%20web%20de%20ARB%20Consulting%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="whatsapp-bubble" aria-label="Contactar por WhatsApp">
+<a href="https://wa.me/351925922568?text=Hola%2C%20vengo%20de%20la%20web%20de%20ARB%20Consulting%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="whatsapp-bubble" aria-label="Contactar por WhatsApp" data-i18n-href="whatsapp.url">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.216 175.552" width="32" height="32">
         <defs><linearGradient id="wa-grad" x1="85.915" x2="86.535" y1="32.567" y2="137.092" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#57d163"/><stop offset="1" stop-color="#23b33a"/></linearGradient></defs>
         <path fill="#fff" d="M87.184 14.2A73.073 73.073 0 0 0 14.2 87.184a72.6 72.6 0 0 0 10.1 36.9L14.2 161.35l38.3-10.05a72.8 72.8 0 0 0 34.7 8.85 73.1 73.1 0 0 0 0-146.15zm0 133.6a60.7 60.7 0 0 1-30.9-8.5l-2.2-1.3-22.7 6 6.1-22.2-1.4-2.3a60.5 60.5 0 0 1-9.3-32.3 60.6 60.6 0 1 1 60.6 60.6z"/>
@@ -1189,17 +1228,247 @@ footer strong {
 
 <!-- Footer -->
 <footer>
-    <p>
+    <p data-i18n="footer.info">
         <strong>ARB Consulting</strong><br>
         Consultora boutique de estrategia e inteligencia de negocios.<br>
         Convertimos información dispersa en sistemas de decisión ejecutables.
     </p>
-    <p style="margin-top: 2rem; font-size: 0.85rem;">
+    <p style="margin-top: 2rem; font-size: 0.85rem;" data-i18n="footer.copyright">
         &copy; 2026 ARB Consulting. Todos los derechos reservados.
     </p>
 </footer>
 
 <script>
+// i18n Translations
+const translations = {
+    es: {
+        'nav.services': 'Servicios',
+        'nav.about': 'Nosotros',
+        'nav.clients': 'Clientes',
+        'nav.contact': 'Contacto',
+        'hero.label': 'Inteligencia Estratégica de Negocios',
+        'hero.title': 'Especialistas en análisis de mercado.<br>Arquitectos de sistemas de decisión.',
+        'hero.description': 'Combinamos análisis profundo de mercado con diseño estructural de modelos financieros y arquitecturas de datos.<br><br>No solo interpretamos el mercado. Construimos el sistema interno que te permite dominarlo.',
+        'hero.cta_primary': 'Agendar conversación estratégica',
+        'hero.cta_secondary': 'Explorar soluciones',
+        'stats.models': 'Modelos',
+        'stats.models_label': 'Simulación financiera estructurada',
+        'stats.systems': 'Sistemas',
+        'stats.systems_label': 'Arquitecturas comerciales implementadas',
+        'stats.data': 'Data',
+        'stats.data_label': 'Dashboards ejecutivos operativos',
+        'stats.expertise': 'Expertise',
+        'stats.expertise_label': 'Análisis sectorial profundo',
+        'problem.label': 'El problema real',
+        'problem.title': 'El mercado no castiga la intuición.<br>Castiga la falta de estructura.',
+        'problem.description': 'La mayoría de empresas operan con información fragmentada, pricing reactivo y sistemas comerciales sin trazabilidad clara.',
+        'problem.card1_title': 'Excel como sistema central',
+        'problem.card1_text': 'Archivos desconectados, reportes manuales y versiones paralelas que consumen tiempo directivo y reducen claridad estratégica.',
+        'problem.card2_title': 'Pricing reactivo',
+        'problem.card2_text': 'Se replica a la competencia sin comprender dinámica real del mercado, elasticidad por producto ni estructura completa de márgenes.',
+        'problem.card3_title': 'Comercial sin arquitectura',
+        'problem.card3_text': 'Falta de trazabilidad entre canal, conversión y rentabilidad final. Se mide actividad, no sistema.',
+        'solution.label': 'Nuestra Arquitectura',
+        'solution.title': 'Dos capas. Un solo sistema de ventaja competitiva.',
+        'solution.description': 'Integramos especialización sectorial con diseño estructural interno. Mercado + Sistema.',
+        'solution.market_title': 'Inteligencia de Mercado',
+        'solution.market_subtitle': 'Dominio profundo del sector',
+        'solution.market_li1': 'Análisis competitivo estructurado',
+        'solution.market_li2': 'Diagnóstico de saturación vs demanda efectiva',
+        'solution.market_li3': 'Identificación de oportunidades no evidentes',
+        'solution.market_li4': 'Benchmarking de performance por player',
+        'solution.market_li5': 'Estrategia de posicionamiento competitivo',
+        'solution.arch_title': 'Arquitectura Estratégica Interna',
+        'solution.arch_subtitle': 'Sistema de decisión replicable',
+        'solution.arch_li1': 'Modelos de simulación financiera por unidad de negocio',
+        'solution.arch_li2': 'Arquitectura de pricing basada en datos reales',
+        'solution.arch_li3': 'Dashboards ejecutivos (Power BI / soluciones propias)',
+        'solution.arch_li4': 'Estandarización de reportes comerciales',
+        'solution.arch_li5': 'Automatización de procesos críticos',
+        'why.label': 'Por qué ARB',
+        'why.title': 'Especialización vertical. Profundidad estructural.',
+        'why.card1_title': 'Análisis sectorial profundo',
+        'why.card1_text': 'No somos consultora generalista. Nos especializamos por vertical para entender ciclos, dinámicas y palancas de valor reales.',
+        'why.card2_title': 'Estrategia + Data + Implementación',
+        'why.card2_text': 'No entregamos solo análisis. Implementamos sistemas que quedan funcionando.',
+        'why.card3_title': 'Modelos propios',
+        'why.card3_text': 'Frameworks y simuladores desarrollados internamente para estructurar decisiones críticas.',
+        'why.card4_title': 'Mentalidad de inversionista',
+        'why.card4_text': 'Pensamos en retorno, riesgo y estructura de capital. No solo en métricas superficiales.',
+        'why.quote': 'No competimos por tamaño. Competimos por claridad estructural en decisiones millonarias.',
+        'clients.label': 'Clientes',
+        'clients.title': 'Trabajamos con quienes toman decisiones reales',
+        'clients.card1_title': 'Empresas en crecimiento',
+        'clients.card1_text': 'Estructuramos modelos de viabilidad, optimizamos pricing por producto y diseñamos arquitecturas comerciales replicables.',
+        'clients.card2_title': 'Fondos y family offices',
+        'clients.card2_text': 'Análisis de oportunidades, due diligence comercial y modelado de retornos bajo distintos escenarios de mercado.',
+        'clients.card3_title': 'Negocios en expansión',
+        'clients.card3_text': 'Estandarizamos procesos comerciales, implementamos dashboards ejecutivos y automatizamos reportería crítica.',
+        'clients.benefit1': 'Reducir riesgo en decisiones de inversión',
+        'clients.benefit2': 'Optimizar pricing y márgenes reales',
+        'clients.benefit3': 'Estandarizar gestión comercial',
+        'clients.benefit4': 'Convertir data dispersa en sistema replicable',
+        'contact.title': 'Si tu empresa depende de hojas sueltas, necesita arquitectura.',
+        'contact.description': 'Agenda una conversación estratégica y evaluemos cómo transformar tu estructura de decisión.',
+        'form.name_label': 'Nombre completo',
+        'form.name_ph': 'Juan Pérez',
+        'form.email_label': 'Email corporativo',
+        'form.email_ph': 'juan@empresa.com',
+        'form.company_label': 'Empresa',
+        'form.company_ph': 'Nombre de tu empresa',
+        'form.priority_label': 'Prioridad actual',
+        'form.priority_default': 'Seleccionar',
+        'form.opt1': 'Inteligencia de mercado',
+        'form.opt2': 'Pricing y estructura de márgenes',
+        'form.opt3': 'Modelo financiero',
+        'form.opt4': 'Dashboards ejecutivos / BI',
+        'form.opt5': 'Arquitectura comercial',
+        'form.opt6': 'Automatización de procesos',
+        'form.submit': 'Agendar conversación estratégica',
+        'form.alert': 'Gracias por tu interés. Nos pondremos en contacto contigo pronto.',
+        'footer.info': '<strong>ARB Consulting</strong><br>Consultora boutique de estrategia e inteligencia de negocios.<br>Convertimos información dispersa en sistemas de decisión ejecutables.',
+        'footer.copyright': '&copy; 2026 ARB Consulting. Todos los derechos reservados.',
+        'whatsapp.url': 'https://wa.me/351925922568?text=Hola%2C%20vengo%20de%20la%20web%20de%20ARB%20Consulting%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n.',
+        'page.title': 'ARB Consulting - Inteligencia de Negocios y Sistemas de Decisión'
+    },
+    en: {
+        'nav.services': 'Services',
+        'nav.about': 'About',
+        'nav.clients': 'Clients',
+        'nav.contact': 'Contact',
+        'hero.label': 'Strategic Business Intelligence',
+        'hero.title': 'Market analysis specialists.<br>Decision system architects.',
+        'hero.description': 'We combine deep market analysis with structural design of financial models and data architectures.<br><br>We don\'t just interpret the market. We build the internal system that lets you dominate it.',
+        'hero.cta_primary': 'Schedule a strategic conversation',
+        'hero.cta_secondary': 'Explore solutions',
+        'stats.models': 'Models',
+        'stats.models_label': 'Structured financial simulation',
+        'stats.systems': 'Systems',
+        'stats.systems_label': 'Implemented commercial architectures',
+        'stats.data': 'Data',
+        'stats.data_label': 'Operational executive dashboards',
+        'stats.expertise': 'Expertise',
+        'stats.expertise_label': 'Deep sector analysis',
+        'problem.label': 'The real problem',
+        'problem.title': 'The market doesn\'t punish intuition.<br>It punishes lack of structure.',
+        'problem.description': 'Most companies operate with fragmented information, reactive pricing, and commercial systems without clear traceability.',
+        'problem.card1_title': 'Excel as the core system',
+        'problem.card1_text': 'Disconnected files, manual reports, and parallel versions that consume executive time and reduce strategic clarity.',
+        'problem.card2_title': 'Reactive pricing',
+        'problem.card2_text': 'Competitors are replicated without understanding real market dynamics, product elasticity, or complete margin structure.',
+        'problem.card3_title': 'Commerce without architecture',
+        'problem.card3_text': 'Lack of traceability between channel, conversion, and final profitability. Activity is measured, not the system.',
+        'solution.label': 'Our Architecture',
+        'solution.title': 'Two layers. One competitive advantage system.',
+        'solution.description': 'We integrate sector specialization with internal structural design. Market + System.',
+        'solution.market_title': 'Market Intelligence',
+        'solution.market_subtitle': 'Deep sector expertise',
+        'solution.market_li1': 'Structured competitive analysis',
+        'solution.market_li2': 'Saturation vs. effective demand diagnosis',
+        'solution.market_li3': 'Identification of non-obvious opportunities',
+        'solution.market_li4': 'Performance benchmarking by player',
+        'solution.market_li5': 'Competitive positioning strategy',
+        'solution.arch_title': 'Internal Strategic Architecture',
+        'solution.arch_subtitle': 'Replicable decision system',
+        'solution.arch_li1': 'Financial simulation models by business unit',
+        'solution.arch_li2': 'Data-driven pricing architecture',
+        'solution.arch_li3': 'Executive dashboards (Power BI / custom solutions)',
+        'solution.arch_li4': 'Commercial report standardization',
+        'solution.arch_li5': 'Critical process automation',
+        'why.label': 'Why ARB',
+        'why.title': 'Vertical specialization. Structural depth.',
+        'why.card1_title': 'Deep sector analysis',
+        'why.card1_text': 'We are not a generalist consultancy. We specialize by vertical to understand real cycles, dynamics, and value levers.',
+        'why.card2_title': 'Strategy + Data + Implementation',
+        'why.card2_text': 'We don\'t just deliver analysis. We implement systems that keep working.',
+        'why.card3_title': 'Proprietary models',
+        'why.card3_text': 'Internally developed frameworks and simulators to structure critical decisions.',
+        'why.card4_title': 'Investor mindset',
+        'why.card4_text': 'We think about returns, risk, and capital structure. Not just surface-level metrics.',
+        'why.quote': 'We don\'t compete on size. We compete on structural clarity in high-stakes decisions.',
+        'clients.label': 'Clients',
+        'clients.title': 'We work with those who make real decisions',
+        'clients.card1_title': 'Growing companies',
+        'clients.card1_text': 'We structure viability models, optimize product pricing, and design replicable commercial architectures.',
+        'clients.card2_title': 'Funds & family offices',
+        'clients.card2_text': 'Opportunity analysis, commercial due diligence, and return modeling under different market scenarios.',
+        'clients.card3_title': 'Expanding businesses',
+        'clients.card3_text': 'We standardize commercial processes, implement executive dashboards, and automate critical reporting.',
+        'clients.benefit1': 'Reduce risk in investment decisions',
+        'clients.benefit2': 'Optimize pricing and real margins',
+        'clients.benefit3': 'Standardize commercial management',
+        'clients.benefit4': 'Turn scattered data into a replicable system',
+        'contact.title': 'If your company relies on scattered spreadsheets, it needs architecture.',
+        'contact.description': 'Schedule a strategic conversation and let\'s evaluate how to transform your decision structure.',
+        'form.name_label': 'Full name',
+        'form.name_ph': 'John Smith',
+        'form.email_label': 'Corporate email',
+        'form.email_ph': 'john@company.com',
+        'form.company_label': 'Company',
+        'form.company_ph': 'Your company name',
+        'form.priority_label': 'Current priority',
+        'form.priority_default': 'Select',
+        'form.opt1': 'Market intelligence',
+        'form.opt2': 'Pricing & margin structure',
+        'form.opt3': 'Financial model',
+        'form.opt4': 'Executive dashboards / BI',
+        'form.opt5': 'Commercial architecture',
+        'form.opt6': 'Process automation',
+        'form.submit': 'Schedule a strategic conversation',
+        'form.alert': 'Thank you for your interest. We will contact you soon.',
+        'footer.info': '<strong>ARB Consulting</strong><br>Boutique strategy and business intelligence consultancy.<br>We turn scattered information into executable decision systems.',
+        'footer.copyright': '&copy; 2026 ARB Consulting. All rights reserved.',
+        'whatsapp.url': 'https://wa.me/351925922568?text=Hello%2C%20I%20come%20from%20the%20ARB%20Consulting%20website%20and%20would%20like%20more%20information.',
+        'page.title': 'ARB Consulting - Business Intelligence & Decision Systems'
+    }
+};
+
+let currentLang = localStorage.getItem('arb-lang') || 'es';
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('arb-lang', lang);
+    document.documentElement.lang = lang;
+    document.title = translations[lang]['page.title'];
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-ph');
+        if (translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-href]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-href');
+        if (translations[lang][key]) {
+            el.href = translations[lang][key];
+        }
+    });
+
+    document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+}
+
+// Language switcher click handlers
+document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        setLanguage(btn.getAttribute('data-lang'));
+    });
+});
+
+// Apply saved language on load
+if (currentLang !== 'es') {
+    setLanguage(currentLang);
+}
+
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
@@ -1271,7 +1540,7 @@ const form = document.getElementById('contactForm');
 if (form) {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('Gracias por tu interés. Nos pondremos en contacto contigo pronto.');
+        alert(translations[currentLang]['form.alert']);
         form.reset();
     });
 }
