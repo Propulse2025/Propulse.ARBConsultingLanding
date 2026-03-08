@@ -102,7 +102,6 @@ nav.scrolled {
     color: var(--off-white);
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 500;
     letter-spacing: 0.3px;
     transition: color 0.3s ease;
     position: relative;
@@ -740,22 +739,148 @@ nav.scrolled {
 
 /* Footer */
 footer {
-    padding: 5rem 8% 3rem;
+    padding: 5rem 8% 2rem;
     background: linear-gradient(180deg, var(--deep-navy) 0%, #050A14 100%);
-    text-align: center;
     color: var(--gray);
-    border-top: 1px solid rgba(79, 195, 247, 0.1);
+    border-top: 1px solid rgba(89, 186, 220, 0.15);
 }
 
-footer p {
-    line-height: 1.8;
-    font-size: 0.95rem;
+.footer-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(89, 186, 220, 0.1);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.footer-logo {
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--gray);
     font-weight: 300;
+    max-width: 300px;
 }
 
-footer strong {
+.footer-col h4 {
     color: var(--white);
+    font-size: 0.85rem;
     font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.footer-col a {
+    display: block;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 0.35rem 0;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: var(--cyan);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(89, 186, 220, 0.15);
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.footer-social a:hover {
+    background: rgba(89, 186, 220, 0.15);
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+}
+
+.footer-social a svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--gray);
+    transition: fill 0.3s ease;
+}
+
+.footer-social a:hover svg {
+    fill: var(--cyan);
+}
+
+.footer-bottom {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--gray);
+}
+
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-brand {
+        align-items: center;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 /* Fade-in Animation */
@@ -951,7 +1076,7 @@ footer strong {
 <nav>
     <div class="nav-container">
         <div class="logo">
-            <img src="logo.png" alt="ARB Consulting" class="logo-icon">
+            <img src="logo-header.png" alt="ARB Consulting" class="logo-icon">
             <div class="logo-text">ARB Consulting</div>
         </div>
         <div class="nav-links">
@@ -1228,14 +1353,47 @@ footer strong {
 
 <!-- Footer -->
 <footer>
-    <p data-i18n="footer.info">
-        <strong>ARB Consulting</strong><br>
-        Consultora boutique de estrategia e inteligencia de negocios.<br>
-        Convertimos información dispersa en sistemas de decisión ejecutables.
-    </p>
-    <p style="margin-top: 2rem; font-size: 0.85rem;" data-i18n="footer.copyright">
-        &copy; 2026 ARB Consulting. Todos los derechos reservados.
-    </p>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img src="logo-footer.png" alt="ARB Consulting" class="footer-logo">
+            <p data-i18n="footer.tagline">Consultora boutique de estrategia e inteligencia de negocios. Convertimos información dispersa en sistemas de decisión ejecutables.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4 data-i18n="footer.nav_title">Navegación</h4>
+            <a href="#servicios" data-i18n="nav.services">Servicios</a>
+            <a href="#nosotros" data-i18n="nav.about">Nosotros</a>
+            <a href="#clientes" data-i18n="nav.clients">Clientes</a>
+            <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+        </div>
+
+        <div class="footer-col">
+            <h4 data-i18n="footer.legal_title">Legal</h4>
+            <a href="privacy-policy.html" data-i18n="footer.privacy">Política de Privacidad</a>
+            <a href="terms.html" data-i18n="footer.terms">Términos y Condiciones</a>
+        </div>
+
+        <div class="footer-col">
+            <h4 data-i18n="footer.contact_title">Contacto</h4>
+            <a href="mailto:comercial@arbconsulting.pe">comercial@arbconsulting.pe</a>
+            <a href="tel:+351925922568">+351 925 922 568</a>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/arbconsulting-pe/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="mailto:comercial@arbconsulting.pe" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+                <a href="tel:+351925922568" aria-label="Phone">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p data-i18n="footer.copyright">&copy; 2026 ARB Consulting. Todos los derechos reservados.</p>
+    </div>
 </footer>
 
 <script>
@@ -1326,7 +1484,12 @@ const translations = {
         'form.opt6': 'Automatización de procesos',
         'form.submit': 'Agendar conversación estratégica',
         'form.alert': 'Gracias por tu interés. Nos pondremos en contacto contigo pronto.',
-        'footer.info': '<strong>ARB Consulting</strong><br>Consultora boutique de estrategia e inteligencia de negocios.<br>Convertimos información dispersa en sistemas de decisión ejecutables.',
+        'footer.tagline': 'Consultora boutique de estrategia e inteligencia de negocios. Convertimos información dispersa en sistemas de decisión ejecutables.',
+        'footer.nav_title': 'Navegación',
+        'footer.legal_title': 'Legal',
+        'footer.contact_title': 'Contacto',
+        'footer.privacy': 'Política de Privacidad',
+        'footer.terms': 'Términos y Condiciones',
         'footer.copyright': '&copy; 2026 ARB Consulting. Todos los derechos reservados.',
         'whatsapp.url': 'https://wa.me/351925922568?text=Hola%2C%20vengo%20de%20la%20web%20de%20ARB%20Consulting%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n.',
         'page.title': 'ARB Consulting - Inteligencia de Negocios y Sistemas de Decisión'
@@ -1416,7 +1579,12 @@ const translations = {
         'form.opt6': 'Process automation',
         'form.submit': 'Schedule a strategic conversation',
         'form.alert': 'Thank you for your interest. We will contact you soon.',
-        'footer.info': '<strong>ARB Consulting</strong><br>Boutique strategy and business intelligence consultancy.<br>We turn scattered information into executable decision systems.',
+        'footer.tagline': 'Boutique strategy and business intelligence consultancy. We turn scattered information into executable decision systems.',
+        'footer.nav_title': 'Navigation',
+        'footer.legal_title': 'Legal',
+        'footer.contact_title': 'Contact',
+        'footer.privacy': 'Privacy Policy',
+        'footer.terms': 'Terms & Conditions',
         'footer.copyright': '&copy; 2026 ARB Consulting. All rights reserved.',
         'whatsapp.url': 'https://wa.me/351925922568?text=Hello%2C%20I%20come%20from%20the%20ARB%20Consulting%20website%20and%20would%20like%20more%20information.',
         'page.title': 'ARB Consulting - Business Intelligence & Decision Systems'
