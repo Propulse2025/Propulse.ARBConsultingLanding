@@ -6,6 +6,7 @@
 <title>ARB Consulting - Inteligencia de Negocios y Sistemas de Decisión</title>
 
 <link href="https://fonts.cdnfonts.com/css/avenir-lt-pro" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <style>
 * { 
@@ -1157,6 +1158,51 @@ footer {
     color: var(--gray);
     font-size: 0.75rem;
 }
+
+/* Client Logo Carousel */
+.logo-carousel-wrapper {
+    width: calc(100% + 16%);
+    margin-left: -8%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.logo-carousel-wrapper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    padding: 0 1rem;
+}
+
+.logo-carousel-wrapper .swiper-slide img {
+    max-height: 70px;
+    max-width: 160px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.4s ease;
+}
+
+.logo-carousel-wrapper .swiper-slide img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .logo-carousel-wrapper {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .logo-carousel-wrapper .swiper-slide img {
+        max-height: 50px;
+        max-width: 120px;
+    }
+}
 </style>
 </head>
 
@@ -1340,6 +1386,20 @@ footer {
         <div class="section-header">
             <div class="section-label" data-i18n="clients.label">Clientes</div>
             <h2 class="section-title" data-i18n="clients.title">Trabajamos con empresas y equipos que toman decisiones relevantes</h2>
+        </div>
+
+        <div class="logo-carousel-wrapper">
+            <div class="swiper logo-carousel">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="carousel/bengala.png" alt="Bengala Inmobiliaria" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="carousel/llosa.png" alt="Llosa Edificaciones" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="carousel/edifica.png" alt="Edifica" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="carousel/darma.png" alt="Darma Marketing Inmobiliario" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="carousel/octagon.png" alt="Octagon" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="carousel/los portales.png" alt="Los Portales" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="carousel/octagon2.png" alt="Octagon" loading="lazy"></div>
+                </div>
+            </div>
         </div>
 
         <div class="grid">
@@ -1853,6 +1913,27 @@ if (form) {
         banner.classList.remove('visible');
     });
 })();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+const logoCarousel = new Swiper('.logo-carousel', {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    loop: true,
+    speed: 3000,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+    },
+    freeMode: true,
+    breakpoints: {
+        480: { slidesPerView: 3 },
+        768: { slidesPerView: 4 },
+        1024: { slidesPerView: 5 },
+        1400: { slidesPerView: 6 },
+    },
+});
 </script>
 
 </body>
