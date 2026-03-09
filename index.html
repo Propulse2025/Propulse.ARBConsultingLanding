@@ -1034,6 +1034,96 @@ footer {
     }
 }
 
+/* Cookie Consent Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(11, 48, 65, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(89, 186, 220, 0.2);
+    padding: 1.5rem 8%;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cookie-banner.visible {
+    display: flex;
+}
+
+.cookie-banner p {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+.cookie-banner p a {
+    color: var(--cyan);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.cookie-banner p a:hover {
+    color: var(--cyan-light);
+}
+
+.cookie-banner-actions {
+    display: flex;
+    gap: 0.8rem;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 0.6rem 1.5rem;
+    font-family: 'Avenir LT Pro', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+.cookie-btn-accept {
+    background: linear-gradient(135deg, var(--green-cta), var(--green));
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(70, 211, 90, 0.2);
+}
+
+.cookie-btn-accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(70, 211, 90, 0.3);
+}
+
+.cookie-btn-reject {
+    background: transparent;
+    color: var(--light-gray);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cookie-btn-reject:hover {
+    border-color: var(--cyan);
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 5%;
+        gap: 1rem;
+    }
+}
+
 /* Language Switcher */
 .lang-switcher {
     display: flex;
@@ -1342,6 +1432,15 @@ footer {
     </div>
 </section>
 
+<!-- Cookie Consent Banner -->
+<div class="cookie-banner" id="cookieBanner">
+    <p data-i18n="cookie.text">Utilizamos cookies y tecnologías similares para mejorar tu experiencia. Al continuar navegando, aceptas nuestro uso de estas tecnologías. <a href="https://drive.google.com/drive/folders/15UFySXxXDPjhLjTtznLlpSgOFpCoOo3a" target="_blank" rel="noopener noreferrer" data-i18n="cookie.link">Política de Privacidad</a></p>
+    <div class="cookie-banner-actions">
+        <button class="cookie-btn cookie-btn-accept" id="cookieAccept" data-i18n="cookie.accept">Aceptar</button>
+        <button class="cookie-btn cookie-btn-reject" id="cookieReject" data-i18n="cookie.reject">Rechazar</button>
+    </div>
+</div>
+
 <!-- WhatsApp Bubble -->
 <a href="https://wa.me/351925922568?text=Hola%2C%20vengo%20de%20la%20web%20de%20ARB%20Consulting%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="whatsapp-bubble" aria-label="Contactar por WhatsApp" data-i18n-href="whatsapp.url">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.216 175.552" width="32" height="32">
@@ -1492,7 +1591,11 @@ const translations = {
         'footer.terms': 'Términos y Condiciones',
         'footer.copyright': '&copy; 2026 ARB Consulting. Todos los derechos reservados.',
         'whatsapp.url': 'https://wa.me/351925922568?text=Hola%2C%20vengo%20de%20la%20web%20de%20ARB%20Consulting%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n.',
-        'page.title': 'ARB Consulting - Inteligencia de Negocios y Sistemas de Decisión'
+        'page.title': 'ARB Consulting - Inteligencia de Negocios y Sistemas de Decisión',
+        'cookie.text': 'Utilizamos cookies y tecnologías similares para mejorar tu experiencia. Al continuar navegando, aceptas nuestro uso de estas tecnologías. ',
+        'cookie.link': 'Política de Privacidad',
+        'cookie.accept': 'Aceptar',
+        'cookie.reject': 'Rechazar'
     },
     en: {
         'nav.services': 'Services',
@@ -1587,7 +1690,11 @@ const translations = {
         'footer.terms': 'Terms & Conditions',
         'footer.copyright': '&copy; 2026 ARB Consulting. All rights reserved.',
         'whatsapp.url': 'https://wa.me/351925922568?text=Hello%2C%20I%20come%20from%20the%20ARB%20Consulting%20website%20and%20would%20like%20more%20information.',
-        'page.title': 'ARB Consulting - Business Intelligence & Decision Systems'
+        'page.title': 'ARB Consulting - Business Intelligence & Decision Systems',
+        'cookie.text': 'We use cookies and similar technologies to improve your experience. By continuing to browse, you accept our use of these technologies. ',
+        'cookie.link': 'Privacy Policy',
+        'cookie.accept': 'Accept',
+        'cookie.reject': 'Reject'
     }
 };
 
@@ -1712,6 +1819,26 @@ if (form) {
         form.reset();
     });
 }
+
+// Cookie Consent Banner
+(function() {
+    var banner = document.getElementById('cookieBanner');
+    var consent = localStorage.getItem('arb-cookie-consent');
+
+    if (!consent) {
+        banner.classList.add('visible');
+    }
+
+    document.getElementById('cookieAccept').addEventListener('click', function() {
+        localStorage.setItem('arb-cookie-consent', 'accepted');
+        banner.classList.remove('visible');
+    });
+
+    document.getElementById('cookieReject').addEventListener('click', function() {
+        localStorage.setItem('arb-cookie-consent', 'rejected');
+        banner.classList.remove('visible');
+    });
+})();
 </script>
 
 </body>
