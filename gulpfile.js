@@ -6,7 +6,7 @@ function clean() {
 }
 
 function copy() {
-  return src("src/**/*").pipe(dest("dist"));
+  return src("src/**/*", { encoding: false }).pipe(dest("dist"));
 }
 
 exports.build = series(clean, copy);
