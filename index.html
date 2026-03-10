@@ -209,7 +209,7 @@ nav.scrolled {
 .hero-label {
     display: inline-block;
     color: var(--cyan);
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -388,7 +388,7 @@ nav.scrolled {
 }
 
 .section-label {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -451,6 +451,22 @@ nav.scrolled {
 .grid-2 {
     grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
     gap: 3rem;
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Cards - Premium Style */
@@ -1280,7 +1296,7 @@ footer {
     <div class="section-container">
         <div class="section-header">
             <div class="section-label" data-i18n="problem.label">El problema real</div>
-            <h2 class="section-title" data-i18n="problem.title">El mercado no castiga la intuición.<br>Castiga la falta de estructura.</h2>
+            <h2 class="section-title" data-i18n="problem.title">El mercado no castiga la intuición.<br>Castiga la inconsistencia analítica.</h2>
             <p class="section-description" data-i18n="problem.description">
                 Muchas empresas operan con información fragmentada, lectura incompleta del mercado y visibilidad limitada para decidir.
             </p>
@@ -1323,7 +1339,7 @@ footer {
                 <ul>
                     <li data-i18n="solution.market_li1">Análisis competitivo estructurado</li>
                     <li data-i18n="solution.market_li2">Diagnóstico de oferta, demanda y saturación</li>
-                    <li data-i18n="solution.market_li3">Identificación de oportunidades no evidentes</li>
+                    <li data-i18n="solution.market_li3">Identificación de oportunidades escondidas</li>
                     <li data-i18n="solution.market_li4">Benchmarking de performance por competidor</li>
                     <li data-i18n="solution.market_li5">Estrategia de posicionamiento competitivo</li>
                 </ul>
@@ -1336,7 +1352,7 @@ footer {
                     <li data-i18n="solution.arch_li1">Modelos de análisis por unidad de negocio</li>
                     <li data-i18n="solution.arch_li2">Arquitectura de pricing basada en datos reales</li>
                     <li data-i18n="solution.arch_li3">Dashboards ejecutivos (Power BI / soluciones propias)</li>
-                    <li data-i18n="solution.arch_li4">Estandarización de reportes comerciales</li>
+                    <li data-i18n="solution.arch_li4">Trazabilidad de la información</li>
                     <li data-i18n="solution.arch_li5">Automatización de procesos críticos</li>
                 </ul>
             </div>
@@ -1348,11 +1364,11 @@ footer {
 <section class="section darker" id="nosotros">
     <div class="section-container">
         <div class="section-header">
-            <div class="section-label" data-i18n="why.label">Por qué ARB</div>
+            <div class="section-label" data-i18n="why.label">¿Por qué ARB?</div>
             <h2 class="section-title" data-i18n="why.title">Especialización analítica. Profundidad estratégica.</h2>
         </div>
 
-        <div class="grid">
+        <div class="grid grid-4">
             <div class="card fade-in">
                 <h3 data-i18n="why.card1_title">Experiencia sectorial relevante</h3>
                 <p data-i18n="why.card1_text">No somos consultora generalista. Nos especializamos por vertical para entender ciclos, dinámicas y palancas de valor reales.</p>
@@ -1360,7 +1376,7 @@ footer {
 
             <div class="card fade-in">
                 <h3 data-i18n="why.card2_title">Estrategia + Data + Implementación</h3>
-                <p data-i18n="why.card2_text">No entregamos solo análisis. Implementamos sistemas que quedan funcionando.</p>
+                <p data-i18n="why.card2_text">No entregamos diagnósticos aislados; somos tu socio analítico en la evolución de cada decisión.</p>
             </div>
 
             <div class="card fade-in">
@@ -1587,7 +1603,7 @@ const translations = {
         'stats.expertise': 'Expertise',
         'stats.expertise_label': 'Experiencia analítica multisectorial',
         'problem.label': 'El problema real',
-        'problem.title': 'El mercado no castiga la intuición.<br>Castiga la falta de estructura.',
+        'problem.title': 'El mercado no castiga la intuición.<br>Castiga la inconsistencia analítica.',
         'problem.description': 'Muchas empresas operan con información fragmentada, lectura incompleta del mercado y visibilidad limitada para decidir.',
         'problem.card1_title': 'Información fragmentada',
         'problem.card1_text': 'Archivos desconectados y reportes manuales que consumen tiempo directivo y reducen claridad estratégica.',
@@ -1602,7 +1618,7 @@ const translations = {
         'solution.market_subtitle': 'Lectura profunda del mercado',
         'solution.market_li1': 'Análisis competitivo estructurado',
         'solution.market_li2': 'Diagnóstico de oferta, demanda y saturación',
-        'solution.market_li3': 'Identificación de oportunidades no evidentes',
+        'solution.market_li3': 'Identificación de oportunidades escondidas',
         'solution.market_li4': 'Benchmarking de performance por competidor',
         'solution.market_li5': 'Estrategia de posicionamiento competitivo',
         'solution.arch_title': 'Arquitectura de información',
@@ -1610,14 +1626,14 @@ const translations = {
         'solution.arch_li1': 'Modelos de análisis por unidad de negocio',
         'solution.arch_li2': 'Arquitectura de pricing basada en datos',
         'solution.arch_li3': 'Dashboards ejecutivos (Power BI / soluciones propias)',
-        'solution.arch_li4': 'Estandarización de reportes comerciales',
+        'solution.arch_li4': 'Trazabilidad de la información',
         'solution.arch_li5': 'Automatización de procesos críticos',
-        'why.label': 'Por qué ARB',
+        'why.label': '¿Por qué ARB?',
         'why.title': 'Especialización analítica. Profundidad estratégica.',
         'why.card1_title': 'Experiencia sectorial relevante',
         'why.card1_text': 'No somos consultora generalista. Nos especializamos por vertical para entender ciclos, dinámicas y palancas de valor reales.',
         'why.card2_title': 'Estrategia + Data + Implementación',
-        'why.card2_text': 'No entregamos solo análisis. Implementamos sistemas que quedan funcionando.',
+        'why.card2_text': 'No entregamos diagnósticos aislados; somos tu socio analítico en la evolución de cada decisión.',
         'why.card3_title': 'Modelos y frameworks propios',
         'why.card3_text': 'Frameworks y simuladores desarrollados internamente para estructurar decisiones críticas.',
         'why.card4_title': 'Mentalidad de inversionista',
@@ -1688,7 +1704,7 @@ const translations = {
         'stats.expertise': 'Expertise',
         'stats.expertise_label': 'Multisector analytical experience',
         'problem.label': 'The real problem',
-        'problem.title': 'The market doesn\'t punish intuition.<br>It punishes lack of structure.',
+        'problem.title': 'The market doesn\'t punish intuition.<br>It punishes analytical inconsistency.',
         'problem.description': 'Many companies operate with fragmented information, incomplete market reading, and limited visibility to decide.',
         'problem.card1_title': 'Fragmented information',
         'problem.card1_text': 'Disconnected files and manual reports that consume executive time and reduce strategic clarity.',
@@ -1703,7 +1719,7 @@ const translations = {
         'solution.market_subtitle': 'Deep market reading',
         'solution.market_li1': 'Structured competitive analysis',
         'solution.market_li2': 'Supply, demand and saturation diagnosis',
-        'solution.market_li3': 'Identification of non-obvious opportunities',
+        'solution.market_li3': 'Identification of hidden opportunities',
         'solution.market_li4': 'Performance benchmarking by competitor',
         'solution.market_li5': 'Competitive positioning strategy',
         'solution.arch_title': 'Information Architecture',
@@ -1711,14 +1727,14 @@ const translations = {
         'solution.arch_li1': 'Analysis models by business unit',
         'solution.arch_li2': 'Data-driven pricing architecture',
         'solution.arch_li3': 'Executive dashboards (Power BI / custom solutions)',
-        'solution.arch_li4': 'Commercial report standardization',
+        'solution.arch_li4': 'Information traceability',
         'solution.arch_li5': 'Critical process automation',
-        'why.label': 'Why ARB',
+        'why.label': 'Why ARB?',
         'why.title': 'Analytical specialization. Strategic depth.',
         'why.card1_title': 'Relevant sector expertise',
         'why.card1_text': 'We are not a generalist consultancy. We specialize by vertical to understand real cycles, dynamics, and value levers.',
         'why.card2_title': 'Strategy + Data + Implementation',
-        'why.card2_text': 'We don\'t just deliver analysis. We implement systems that keep working.',
+        'why.card2_text': 'We don\'t deliver isolated diagnoses; we are your analytical partner in the evolution of every decision.',
         'why.card3_title': 'Proprietary models and frameworks',
         'why.card3_text': 'Internally developed frameworks and simulators to structure critical decisions.',
         'why.card4_title': 'Investor mindset',
